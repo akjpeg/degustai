@@ -1,4 +1,4 @@
-version: '3.8'
+#version: '3.8'
 services:
   aspnet-be:
     build:
@@ -7,7 +7,17 @@ services:
     ports: 
       - '8000:80'
     depends_on:
+      - migrations
+    environment: 
+      - ConnectionStrings__DefaultConnection=Server=db;Port=5432;Database=degustai;User Id=postgres;Password=postgres;
+
+  migrations:
+    build:
+      context: .
+      dockerfile: Dockerfile.migrations
+    depends_on:
       - db
+        
     environment: 
       - ConnectionStrings__DefaultConnection=Server=db;Port=5432;Database=degustai;User Id=postgres;Password=postgres;
 
