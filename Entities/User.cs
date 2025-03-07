@@ -1,23 +1,22 @@
 using System;
-namespace DegustAi.Entities
+namespace DegustAi.Entities;
+    
+public class User(int id, string name, string email, string password)
 {
-    public class User(int id, string name, string email, string password)
+
+    public int Id { get; set; } = id;
+    public string Name { get; set; } = name;
+    public string Email { get; set; } = email;
+    public string Password { get; set; } = password;
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public List<Review> Reviews { get; set; } = new List<Review>();
+    public List<Photo> Photos { get; set; } = new List<Photo>();
+
+    public void ShowInfo()
     {
-
-        public int Id { get; set; } = id;
-        public string Name { get; set; } = name;
-        public string Email { get; set; } = email;
-        public string Password { get; set; } = password;
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
-
-        public void ShowInfo()
-        {
-            Console.WriteLine($"ID: {Id}");
-            Console.WriteLine($"Name: {Name}");
-            Console.WriteLine($"Email: {Email}");
-            Console.WriteLine($"CreatedAt: {CreatedAt}");
-        }
-    }   
-
+        Console.WriteLine($"ID: {Id}");
+        Console.WriteLine($"Name: {Name}");
+        Console.WriteLine($"Email: {Email}");
+        Console.WriteLine($"CreatedAt: {CreatedAt}");
+    }
 }
-
