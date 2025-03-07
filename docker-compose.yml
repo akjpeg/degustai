@@ -16,8 +16,7 @@ services:
       context: .
       dockerfile: Dockerfile.migrations
     depends_on:
-      - db
-        
+      - db   
     environment: 
       - ConnectionStrings__DefaultConnection=Server=db;Port=5432;Database=degustai;User Id=postgres;Password=postgres;
 
